@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+
 *{
 	padding: 0;
-	font-family: helvetica;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 	text-align: center;
 }
 
@@ -13,32 +15,35 @@ li{
 }
 :root{
 	--width: 300px;
+	--font-size: 12px;
+	--font-family: 'Oleo Script Swash Caps', cursive;
 }
+body{
+	overflow: hidden;
+}
+
+
 #main_image{grid-area: main_image}
 #main_box{grid-area: first_box}
 #footer{grid-area: footer}
 .copyright{grid-area: copyright}
 
-#container{
-	margin: 60px 0;
-	display: grid;
-	grid-gap: 20px;
-	grid-template-areas: 
-	"main_image main_image main_box main_box"
-	"main_image main_image main_box main_box"
-	". footer footer .";
-}
-.side_image{
-	height: 540px;
-}
 
 #first_box{
-	padding: 8px 10px;
+	padding: 0px 10px;
 	width: var(--width);
-	height: 340px;
+	height: 360px;
 	border: 1px solid gray;
 }
 
+#first_box h1{
+	position: relative;
+	margin: 5px 0 20px 0;
+	font-family: var(--font-family);
+	font-size: 3rem;
+	padding: 0;
+
+}
 .log_in{
 	width: 250px;
 	padding: 10px;
@@ -76,18 +81,119 @@ li{
 	margin: 3px auto 0;
 	cursor: pointer;
 }
-#footer{
-	width: 800px;
+
+
+@media screen and (min-width: 800px){
+	#container{
+		overflow: hidden;
+		margin: 60px;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-areas: 
+		"main_image main_image main_box main_box"
+		"main_image main_image main_box main_box"
+		"footer footer footer footer";
+		justify-content: space-between;
+	}
+
+	.side_image{
+		height: 540px;
+	}
+	#footer{
+		max-width: 1000px;
+		margin: 60px 0 10px 0;
+		display: flex;
+		justify-content: space-between;
+		font-size: var(--font-size);
+
+	}
+	#footer ul{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	#footer ul li{
+		text-transform: uppercase;
+		font-size: var(--font-size);
+		font-weight: bold;
+		padding: 0 5px;
+	}
+	.copyright{
+		text-align: center;
+		margin: auto;
+	}
+
 }
-#footer ul{
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-}
-#footer ul li{
-	text-transform: uppercase;
-	font-size: .9rem;
-	font-weight: bold;
-	padding: 0 5px;
+
+@media screen and (max-width: 799px){
+	.side_image{
+		visibility: hidden;
+		position: absolute;
+	}
+
+
+	#container{
+		overflow: hidden;
+		margin-top: 60px;
+		display: flex;
+		/*
+		justify-content: space-between;
+		*/
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/*
+	#footer{
+		width: 400px;
+		flex-direction: column;
+	}
+
+
+	#about{grid-area: about}
+	#help{grid-area: helpp}
+	#press{grid-area: press}
+	#api{grid-area: api}
+	#jobs{grid-area: jobs}
+	#privacy{grid-area: privacy}
+	#terms{grid-area: terms}
+	#locations{grid-area: locations}
+	#top_accounts{grid-area: top_accounts}
+	#hashtags{grid-area: hashtags}
+	#language{grid-area: language}
+
+
+	#footer ul{
+		
+		display: grid;
+		grid-template-areas: 
+		"about help press api jobs privacy"
+		". terms locations top_accounts hashtags ."
+		". . . language . .";
+		*/
+	#footer{
+		width: 400px;
+		margin-top: 40px;
+		overflow: hidden;
+
+	}
+
+	.list{
+		display: inline-block;
+		margin-bottom: 7px;
+		margin-right: 16px;
+		text-transform: uppercase;
+		font-size: var(--font-size);
+		font-weight: 600;
+	}
+	.list_last{
+		display: block;
+		margin-bottom: 7px;
+		font-size: var(--font-size);
+		font-weight: 600;
+		text-transform: uppercase;
+
+	}
+
 }
